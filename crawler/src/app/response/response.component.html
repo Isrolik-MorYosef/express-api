@@ -1,0 +1,11 @@
+<div class="container">
+  <table>
+    <tr *ngFor="let val of (res | async)?.urls">
+      <td>
+        <p>{{val}}</p>
+        <mat-icon class="icon" matRipple (click)="gotoLink(val)">link</mat-icon>
+      </td>
+    </tr>
+  </table>
+  <p class="sum" *ngIf="(res | async)?.length !== null"> {{(res | async)?.length}} results </p>
+</div>

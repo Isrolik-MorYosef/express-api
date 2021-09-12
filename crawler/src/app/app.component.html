@@ -1,0 +1,25 @@
+<ngx-ui-loader [fgsType]="'square-jelly-box'" [loaderId]="'01'"></ngx-ui-loader>
+<div class="container">
+  <form class="form" [formGroup]="manageReqForm" (ngSubmit)="onSubmit()">
+    <h1 [ngStyle]="{margin: 'auto'}"> Spider solution </h1>
+    <div class="row">
+      <input class="num" [ngStyle]="{width: '300px', display: 'flex'}" type="text" formControlName="url"
+             placeholder="example: https://www.ynet.co.il/">
+    </div>
+    <div class="row">
+      <div class="counter-container">
+        <div class="btn" matRipple (click)="add('limit')">+</div>
+        <input class="num" type="number" formControlName="limit" placeholder="Limit"/>
+        <div class="btn" matRipple (click)="subtract('limit')">-</div>
+      </div>
+      <div class="counter-container">
+        <div class="btn" matRipple (click)="add('deep')">+</div>
+        <input class="num" type="number" formControlName="deep" placeholder="Deep"/>
+        <div class="btn" matRipple (click)="subtract('deep')">-</div>
+      </div>
+    </div>
+    <button class="" type="submit" [disabled]="!manageReqForm.valid">Scan</button>
+  </form>
+  <app-response [ngStyle]="{display: 'flex', margin: 'auto'}" [res]="data"></app-response>
+</div>
+
